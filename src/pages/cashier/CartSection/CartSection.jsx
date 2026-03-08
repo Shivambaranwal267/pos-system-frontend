@@ -71,4 +71,3 @@ const CartSection = () => {
 };
 
 export default CartSection;
-
