@@ -1,6 +1,8 @@
 import React from "react";
 import { SearchIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { PlusIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const CustomerSearch = () => {
   return (
@@ -14,6 +16,9 @@ const CustomerSearch = () => {
             className="py-5"
           />
         </div>
+        <Button className="py-5">
+          <PlusIcon className="h-4 w-4 mr-2" />Add New
+        </Button>
       </div>
     </div>
   );

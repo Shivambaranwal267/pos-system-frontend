@@ -1,8 +1,14 @@
 import React from 'react'
 
-const CustomerDetails = () => {
+const CustomerDetails = ({customer}) => {
   return (
-    <div>CustomerDetails</div>
+    <div className="p-4">
+      <div className="flex justify-between items-start mb-6">
+        <div className="">
+          <h2>{customer.fullName}</h2>
+        </div>
+      </div>
+    </div>
   )
 }
 
