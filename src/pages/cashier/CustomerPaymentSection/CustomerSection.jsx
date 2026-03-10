@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { User } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,9 @@ let selectedCustomer = {
 selectedCustomer = null;
 
 const CustomerSection = () => {
+
+  const [showCustomerDialog, setShowCustomerDialog] = useState(false);
+
   return (
     <div className="p-4 border-b">
       <h2 className="mb-3 flex text-lg font-semibold items-center">
@@ -47,10 +50,14 @@ const CustomerSection = () => {
           {/* <p className="text-sm text-muted-foreground">
             No customer selected, Please select a customer to proceed.
           </p> */}
-          <Button variant={"outline"} className="w-full py-5">Select Customer</Button>
+          <Button onClick={() => setShowCustomerDialog(true)}
+           variant={"outline"} className="w-full py-5">Select Customer</Button>
         </div>
       )}
-      <CustomerDialog/>
+      <CustomerDialog
+        showCustomerDialog={showCustomerDialog}
+        setShowCustomerDialog={setShowCustomerDialog}
+      />
     </div>
   );
 };

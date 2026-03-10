@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { CreditCard, Pause } from "lucide-react";
+import PaymentDialog from "./PaymentDialog";
 
 const PaymentSection = ({ CartItems = [1] }) => {
+  const [showPaymentDialog, setShowPaymentDialog] = useState(false);
+
   return (
     <div className="p-4 flex flex-1 flex-col justify-end">
       <div className="space-y-4">
@@ -17,6 +20,7 @@ const PaymentSection = ({ CartItems = [1] }) => {
         <div className="space-y-3">
           <div>
             <Button
+              onClick={() => setShowPaymentDialog(true)}
               disabled={CartItems.length === 0}
               className="w-full py-3 text-lg font-semibold"
             >
@@ -37,6 +41,12 @@ const PaymentSection = ({ CartItems = [1] }) => {
           </div>
         </div>
       </div>
+
+      <PaymentDialog
+        showPaymentDialog={showPaymentDialog}
+        setShowPaymentDialog={setShowPaymentDialog}
+      />
+      
     </div>
   );
 };
