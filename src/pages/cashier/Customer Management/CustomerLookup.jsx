@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomerSearch from "./CustomerSearch";
 import CustomerList from "./CustomerList";
 import CustomerDetails from "./CustomerDetails";
 import PurchaseHistory from "./PurchaseHistory";
+import { UserIcon } from "lucide-react";
 
 const CustomerLookup = () => {
+  const [selectedCustomer, setSelectedCustomer] = useState(null);
+
+  /// Function to handle Customer Selection
+  // const handleCustomerSelect = (customer) => {
+  //   setSelectedCustomer(customer);
+  // };
+
   return (
     <div className="h-full flex flex-col">
       <div className="p-4 bg-card border-b">
@@ -14,14 +22,19 @@ const CustomerLookup = () => {
       <div className="flex flex-1 overflow-hidden">
         <div className="w-1/3 border-r flex flex-col">
           <CustomerSearch />
-          <CustomerList />
+          <CustomerList setSelectedCustomer={setSelectedCustomer} />
         </div>
-
-        <div className="w-2/3 flex flex-col overflow-y-auto">
-          <CustomerDetails />
-          <PurchaseHistory />
-        </div>
-        
+        {selectedCustomer ? (
+          <div className="w-2/3 flex flex-col overflow-y-auto">
+            <CustomerDetails customer={selectedCustomer} />
+            <PurchaseHistory customer={selectedCustomer} />
+          </div>
+        ) : (
+          <div className="w-2/3 h-[99vh] flex flex-col items-center justify-center text-muted-foreground">
+            <UserIcon className="h-4 w-4 mr-1" />
+            <p className="mt-4">No Customer slected</p>
+          </div>
+        )}
       </div>
     </div>
   );

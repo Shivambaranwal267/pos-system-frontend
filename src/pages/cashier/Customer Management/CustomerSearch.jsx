@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { SearchIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CustomerForm from "../CustomerPaymentSection/CustomerForm";
 
 const CustomerSearch = () => {
+  const [showCustomerForm, setShowCustomerForm] = useState(false);
+
   return (
     <div className="p-4 border-b">
       <div className="flex gap-2">
@@ -16,10 +19,15 @@ const CustomerSearch = () => {
             className="py-5"
           />
         </div>
-        <Button className="py-5">
-          <PlusIcon className="h-4 w-4 mr-2" />Add New
+        <Button onClick={() => setShowCustomerForm(true)} className="py-5">
+          <PlusIcon className="h-4 w-4 mr-2" />
+          Add New
         </Button>
       </div>
+      <CustomerForm
+        showCustomerForm={showCustomerForm}
+        setShowCustomerForm={setShowCustomerForm}
+      />
     </div>
   );
 };
