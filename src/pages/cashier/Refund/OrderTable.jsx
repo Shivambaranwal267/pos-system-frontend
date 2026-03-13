@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { EyeIcon } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -8,7 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { EyeIcon, Printer } from "lucide-react";
 
 const orders = [
   {
@@ -34,10 +34,9 @@ const orders = [
   },
 ];
 
-const OrderTable = ({ handleViewOrderDetails }) => {
+const OrderTable = ({handleSelectOrder}) => {
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Recent Orders</h2>
       <Table>
         <TableHeader>
           <TableRow>
@@ -60,19 +59,11 @@ const OrderTable = ({ handleViewOrderDetails }) => {
               <TableCell>{order.paymentType}</TableCell>
               <TableCell>{order.status}</TableCell>
               <TableCell className="text-right">
-                <div className="flex justify-end gap-2">
-                  <Button
-                    onClick={() => handleViewOrderDetails(order)}
-                    variant={"ghost"}
-                    size={"icon"}
-                  >
-                    <EyeIcon className="w-4 h-4" />
-                  </Button>
-
-                  <Button variant={"ghost"} size={"icon"}>
-                    <Printer className="w-4 h-4" />
-                  </Button>
-                </div>
+                <Button
+                  onClick={() => handleSelectOrder(order)}
+                >
+                  select for return
+                </Button>
               </TableCell>
             </TableRow>
           ))}

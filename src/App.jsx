@@ -2,6 +2,7 @@ import './App.css'
 import CreateOrder from './pages/cashier/CreateOrder'
 import CustomerLookup from './pages/cashier/Customer Management/CustomerLookup'
 import OrderHistory from './pages/cashier/Order History/OrderHistory'
+import RefundPage from './pages/cashier/Refund/RefundPage'
 import ShiftSummaryPage from './pages/Shift Report/ShiftSummaryPage'
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
      {/* <CreateOrder/> */}
      {/* <CustomerLookup/> */}
      {/* <ShiftSummaryPage/> */}
-     <OrderHistory/>
+     {/* <OrderHistory/> */}
+     <RefundPage/>
     </>
   )
 }
