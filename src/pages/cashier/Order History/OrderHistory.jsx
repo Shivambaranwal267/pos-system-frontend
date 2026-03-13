@@ -30,7 +30,7 @@ const OrderHistory = () => {
         open={showOrderInvoiceDialog}
         onOpenChange={setShowOrderInvoiceDialog}
       >
-        <DialogContent className="max-w-3xl">
+        <DialogContent className="max-w-4xl">
           <DialogHeader>
             <DialogTitle>Order - Invoice</DialogTitle>
           </DialogHeader>
