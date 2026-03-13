@@ -1,16 +1,12 @@
-import './App.css'
-import CashierRoutes from './pages/CashierRoutes'
+import "./App.css";
+import CashierRoutes from "./routes/CashierRoutes";
 
 function App() {
-  
-
   return (
     <>
-
-     <CashierRoutes/>
-
+      <CashierRoutes />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
