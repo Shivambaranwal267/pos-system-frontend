@@ -1,20 +1,14 @@
 import './App.css'
-import CreateOrder from './pages/cashier/CreateOrder'
-import CustomerLookup from './pages/cashier/Customer Management/CustomerLookup'
-import OrderHistory from './pages/cashier/Order History/OrderHistory'
-import RefundPage from './pages/cashier/Refund/RefundPage'
-import ShiftSummaryPage from './pages/Shift Report/ShiftSummaryPage'
+import CashierRoutes from './pages/CashierRoutes'
 
 function App() {
   
 
   return (
     <>
-     {/* <CreateOrder/> */}
-     {/* <CustomerLookup/> */}
-     {/* <ShiftSummaryPage/> */}
-     {/* <OrderHistory/> */}
-     <RefundPage/>
+
+     <CashierRoutes/>
+
     </>
   )
 }
