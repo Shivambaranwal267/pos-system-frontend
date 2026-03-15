@@ -1,33 +1,46 @@
-import React, { useState } from "react";
+import React from "react";
 import Sidebar from "./sidebar/Sidebar";
-import { ReceiptIcon, RotateCcw, Clock, ShoppingCart } from "lucide-react";
+import {
+  ReceiptIcon,
+  RotateCcwIcon,
+  ClockIcon,
+  ShoppingCartIcon,
+  UsersIcon,
+} from "lucide-react";
 import { Outlet } from "react-router";
+import { useSidebar } from "@/context/hook/useSIdebar";
+import { SidebarProvider } from "@/context/SidebarProvider";
 
 const navItems = [
   {
     path: "/cashier",
-    icon: <ShoppingCart size={20} />,
+    icon: <ShoppingCartIcon size={20} />,
     label: "POS Terminal",
   },
   {
     path: "/cashier/orders",
-    icon: <Clock size={20} />,
+    icon: <ClockIcon size={20} />,
     label: "Order History",
   },
   {
     path: "/cashier/returns",
-    icon: <RotateCcw size={20} />,
-    label: "Returns/Refund",
+    icon: <RotateCcwIcon size={20} />,
+    label: "Returns/Refunds",
   },
   {
-    path: "/",
+    path: "/cashier/customers",
+    icon: <UsersIcon size={20} />,
+    label: "Customers",
+  },
+  {
+    path: "/cashier/shift-summary",
     icon: <ReceiptIcon size={20} />,
     label: "Shift Summary",
   },
 ];
 
-const CashierDashboardLayout = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+const LayoutContent = () => {
+  const { sidebarOpen, setSidebarOpen } = useSidebar();
 
   return (
     <div className="flex h-screen b-background">
@@ -40,10 +53,18 @@ const CashierDashboardLayout = () => {
         <Sidebar navItems={navItems} onClose={() => setSidebarOpen(false)} />
       </div>
 
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-auto">
         <Outlet />
       </div>
     </div>
+  );
+};
+
+const CashierDashboardLayout = () => {
+  return (
+    <SidebarProvider>
+      <LayoutContent />
+    </SidebarProvider>
   );
 };
 
