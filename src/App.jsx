@@ -1,10 +1,13 @@
 import "./App.css";
+import { Route, Routes } from "react-router";
 import CashierRoutes from "./routes/CashierRoutes";
 
 function App() {
   return (
     <>
-      <CashierRoutes />
+      <Routes>
+        <Route path="/cashier/*" element={<CashierRoutes />} />
+      </Routes>
     </>
   );
 }
